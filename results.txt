@@ -1,0 +1,37 @@
+BERT
+Précision : 0.7561
+Rappel : 0.6000
+Score F1 : 0.7059
+Matrice de confusion :
+[[19  2]
+ [ 8 12]]
+
+FCNN
+Précision: 0.5853658536585366
+Rappel: 0.9
+Score F1: 0.679245283018868
+Matrice de confusion:
+ [[ 6 15]
+ [ 2 18]]
+
+- Précision mesure la proportion de prédictions correctes parmi les prédictions positives. C'est le nombre de vrais positifs divisé par le nombre total de cas étiquetés positifs (vrais positifs + faux positifs).
+- Rappel (ou sensibilité) mesure la proportion de vrais positifs identifiés correctement. C'est le nombre de vrais positifs divisé par le nombre total de cas réellement positifs (vrais positifs + faux négatifs).
+- Score F1 est une moyenne harmonique de la précision et du rappel. Un score F1 élevé indique un équilibre entre la précision et le rappel.
+- Matrice de confusion montre les vrais positifs (TP), les faux positifs (FP), les vrais négatifs (TN) et les faux négatifs (FN). Dans votre cas, la matrice est présentée comme [[TN, FP], [FN, TP]].
+
+Interprétation pour BERT:
+- Précision de 0.7561 indique que 75.61% des prédictions positives du modèle BERT sont correctes.
+- Rappel de 0.6000 signifie que le modèle a correctement identifié 60% des cas positifs réels.
+- Score F1 de 0.7059 suggère un bon équilibre entre précision et rappel, légèrement orienté vers une meilleure précision.
+- Matrice de confusion : Sur 20 cas négatifs réels, 19 ont été correctement identifiés (TN) et 2 incorrectement identifiés comme positifs (FP). Sur 20 cas positifs réels, 12 ont été correctement identifiés (TP) et 8 manqués (FN).
+
+- Interprétation pour FCNN:
+- Précision de 0.5854 indique que seulement 58.54% des prédictions positives du modèle FCNN sont correctes, ce qui est nettement inférieur à BERT.
+- Rappel de 0.9 montre que le modèle FCNN a identifié correctement 90% des cas positifs réels, ce qui est nettement supérieur à BERT.
+- Score F1 de 0.6792 suggère un équilibre raisonnable entre précision et rappel, mais avec un biais vers un meilleur rappel.
+- Matrice de confusion : Sur 21 cas négatifs réels, seulement 6 ont été correctement identifiés (TN), tandis que 15 ont été incorrectement classés comme positifs (FP). Sur 20 cas positifs réels, 18 ont été correctement identifiés (TP) et 2 manqués (FN).
+
+Conclusion:
+Le modèle BERT est plus précis mais a tendance à manquer plus de cas positifs réels (moins de rappel).
+Le modèle FCNN, malgré sa faible précision, est meilleur pour identifier la plupart des cas positifs réels (haut rappel) mais au prix de classer incorrectement un nombre significatif de cas négatifs comme positifs.
+Le choix entre ces modèles dépend de l'importance relative de la précision par rapport au rappel dans votre application spécifique. Si l'identification de tous les cas positifs est critique, même au prix de faux positifs, FCNN pourrait être préférable. Si la précision est plus importante, BERT serait le choix approprié.
